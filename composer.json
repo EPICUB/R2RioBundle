@@ -1,5 +1,5 @@
 {
-    "name": "epicub/r2-rio",
+    "name": "epicub/rome2rio",
     "type": "symfony-bundle",
     "description": "Interface for used Rome2Rio system API and cache the responses",
     "keywords": ["Cache","API","Rome2Rio","Symfony2"],
