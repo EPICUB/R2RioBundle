@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+  <!--
+    <parameters>
+        <parameter key="epic.r2rio.example.class">Epic\R2RioBundle\Example</parameter>
+    </parameters>
+  -->
+    <services>
+      <!--<service id="epic_r2rio.entities_repository" class="Epic\R2RioBundle\Services\Model\EntitiesRepository">
+        <argument type="service" id="doctrine" />
+      </service>-->
+
+      <service id="epic_r2rio.search_agency" class="Epic\R2RioBundle\Services\Model\R2SearchAgency">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_aircraft" class="Epic\R2RioBundle\Services\Model\R2SearchAircraft">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_airline" class="Epic\R2RioBundle\Services\Model\R2SearchAirline">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_airport" class="Epic\R2RioBundle\Services\Model\R2SearchAirport">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_place" class="Epic\R2RioBundle\Services\Model\R2SearchPlace">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_request" class="Epic\R2RioBundle\Services\Model\R2SearchRequest">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_response" class="Epic\R2RioBundle\Services\Model\R2SearchResponse">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_route" class="Epic\R2RioBundle\Services\Model\R2SearchRoute">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_segment" class="Epic\R2RioBundle\Services\Model\R2SearchSegment">
+        <argument type="service" id="doctrine" />
+      </service>
+      <service id="epic_r2rio.search_stop" class="Epic\R2RioBundle\Services\Model\R2SearchStop">
+        <argument type="service" id="doctrine" />
+      </service>
+
+        <!--<service id="epic.r2rio.example" class="%epic.r2rio.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+            <call method="setService">
+                <argument type="service" id="service_id" />
+            </call>
+            <tag name="twig.extension" />
+            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" />
+        </service>-->
+    </services>
+</container>

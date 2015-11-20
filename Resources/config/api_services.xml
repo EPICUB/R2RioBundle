@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+      <parameter key="epic_r2rio.apitype.search">Search</parameter>
+      <parameter key="epic_r2rio.apitype.autocomplete">Autocomplete</parameter>
+      <parameter key="epic_r2rio.apitype.geocode">Geocode</parameter>
+    </parameters>
+
+    <services>
+        <service id="epic_r2rio.search" class="Epic\R2RioBundle\Services\Api\SearchService">
+            <argument type="service" id="api_caller" />
+            <argument>%epic_r2_rio_api_key%</argument>
+            <argument>%epic_r2_rio_api_server%</argument>
+            <argument type="service" id="epic_r2rio.search_request" />
+            <argument type="service" id="epic_r2rio.search_response"/>
+            <argument type="service" id="epic_r2rio.search_place"/>
+            <argument type="service" id="epic_r2rio.search_airport"/>
+            <argument type="service" id="epic_r2rio.search_airline"/>
+            <argument type="service" id="epic_r2rio.search_aircraft"/>
+            <argument type="service" id="epic_r2rio.search_agency"/>
+            <argument type="service" id="epic_r2rio.search_route"/>
+            <argument type="service" id="epic_r2rio.search_stop"/>
+            <argument type="service" id="epic_r2rio.search_segment"/>
+            <call method="setApiType">
+              <argument>%epic_r2rio.apitype.search%</argument>
+            </call>
+            <call method="setFlag">
+              <argument>%epic_r2_rio_search_flag%</argument>
+            </call>
+            <call method="setCache">
+              <argument>%epic_r2_rio_search_cache%</argument>
+            </call>
+        </service>
+
+        <service id="epic_r2rio.autocomplete" class="Epic\R2RioBundle\Services\Api\AutocompleteService">
+          <argument type="service" id="api_caller" />
+          <argument>%epic_r2_rio_api_key%</argument>
+          <argument>%epic_r2_rio_api_server%</argument>
+          <call method="setApiType">
+            <argument>%epic_r2rio.apitype.autocomplete%%</argument>
+          </call>
+        </service>
+
+        <service id="epic_r2rio.geocode" class="Epic\R2RioBundle\Services\Api\GeocodeService">
+          <argument type="service" id="api_caller" />
+          <argument>%epic_r2_rio_api_key%</argument>
+          <argument>%epic_r2_rio_api_server%</argument>
+          <call method="setApiType">
+            <argument>%epic_r2rio.apitype.geocode%</argument>
+          </call>
+        </service>
+    </services>
+
+</container>
